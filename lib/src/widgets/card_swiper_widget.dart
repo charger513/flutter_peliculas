@@ -28,7 +28,7 @@ class CardSwiper extends StatelessWidget {
           );
 
         },
-        itemCount: 3,
+        itemCount: peliculas.length,
         layout: SwiperLayout.STACK,
         // pagination: new SwiperPagination(),
         // control: new SwiperControl(),
