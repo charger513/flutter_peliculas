@@ -69,4 +69,11 @@ class Pelicula {
     }
     return 'https://image.tmdb.org/t/p/w500/$posterPath';
   }
+
+  getBackgroundImg() {
+    if(posterPath == null) {
+      return 'https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png';
+    }
+    return 'https://image.tmdb.org/t/p/w500/$backdropPath';
+  }
 }
