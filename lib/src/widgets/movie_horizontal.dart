@@ -13,7 +13,7 @@ class MovieHorizontal extends StatelessWidget {
     final _screenSize = MediaQuery.of(context).size;
 
     return Container(
-      height: _screenSize.height * 0.2,
+      height: _screenSize.height * 0.25,
       child: PageView(
         children: _tarjetas(context),
         controller: PageController(
@@ -37,7 +37,7 @@ class MovieHorizontal extends StatelessWidget {
                 placeholder: AssetImage('assets/img/no-image.jpg'),
                 image: NetworkImage(pelicula.getPosterImg()),
                 fit: BoxFit.cover,
-                height: 140.0,
+                height: 160.0,
               ),
             ),
             SizedBox(height: 5.0,),
