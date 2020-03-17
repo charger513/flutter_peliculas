@@ -46,11 +46,16 @@ class PeliculasProvider {
     return resp;
   }
 
-  Future<List<Pelicula>> _get(String path, {int page = 1}) async {
+  Future<List<Pelicula>> buscarPelicula(String query) {
+    return _get('3/search/movie', query: query);
+  }
+
+  Future<List<Pelicula>> _get(String path, {int page = 1, String query}) async {
     final url = Uri.https(_url, path, {
       'api_key': _apikey,
       'language': _language,
-      'page': page.toString()
+      'page': page.toString(),
+      'query': query
     });
 
     final resp = await http.get(url);
