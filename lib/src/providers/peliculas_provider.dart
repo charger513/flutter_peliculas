@@ -10,6 +10,7 @@ class PeliculasProvider {
   String _language = 'es-MX';
 
   int _popularesPage = 0;
+  bool _cargando = false;
 
   List<Pelicula> _populares = new List();
 
@@ -28,12 +29,18 @@ class PeliculasProvider {
   }
 
   Future<List<Pelicula>> getPopulares() async {
+    if(_cargando) return [];
+
+    _cargando = true;
+
     _popularesPage++;
 
     final resp = await _get('3/movie/popular', page: _popularesPage);
 
     _populares.addAll(resp);
     popularesSink(_populares);
+
+    _cargando = false;
 
     return resp;
   }
