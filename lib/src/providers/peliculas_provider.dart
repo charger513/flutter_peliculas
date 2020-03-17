@@ -8,8 +8,16 @@ class PeliculasProvider {
   String _url = 'api.themoviedb.org';
   String _language = 'es-MX';
 
-  Future<List<Pelicula>> getEnCines() async {
-    final url = Uri.https(_url, '3/movie/now_playing', {
+  Future<List<Pelicula>> getEnCines() {
+    return _get('3/movie/now_playing');
+  }
+
+  Future<List<Pelicula>> getPopulares() {
+    return _get('3/movie/popular');
+  }
+
+  Future<List<Pelicula>> _get(String path) async {
+    final url = Uri.https(_url, path, {
       'api_key': _apikey,
       'language': _language
     });
